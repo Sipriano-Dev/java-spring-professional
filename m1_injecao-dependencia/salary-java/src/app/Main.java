@@ -1,6 +1,7 @@
 package app;
 
 import entities.Employee;
+import services.BrazilTaxService;
 import services.PensionService;
 import services.SalaryService;
 import services.TaxService;
@@ -20,7 +21,7 @@ public class Main {
         double grossSalary = sc.nextDouble();
 
         Employee emp = new Employee(name, grossSalary);
-        SalaryService salaryService = new SalaryService(new TaxService(), new PensionService());
+        SalaryService salaryService = new SalaryService(new BrazilTaxService(), new PensionService());
 
         System.out.printf("Salario liquido = %.2f%n", salaryService.netSalary(emp));
 
