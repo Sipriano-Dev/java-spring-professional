@@ -5,8 +5,13 @@ import entities.Employee;
 public class SalaryService {
 
     //Forma Errada!
-    private TaxService taxService = new TaxService();
-    private PensionService pensionService = new PensionService();
+    private TaxService taxService;
+    private PensionService pensionService;
+
+    public SalaryService (TaxService taxService, PensionService pensionService) {
+        this.taxService = taxService;
+        this.pensionService = pensionService;
+    }
 
     public double netSalary(Employee employee) {
 

@@ -20,7 +20,7 @@ public class Main {
         double grossSalary = sc.nextDouble();
 
         Employee emp = new Employee(name, grossSalary);
-        SalaryService salaryService = new SalaryService();
+        SalaryService salaryService = new SalaryService(new TaxService(), new PensionService());
 
         System.out.printf("Salario liquido = %.2f%n", salaryService.netSalary(emp));
 
