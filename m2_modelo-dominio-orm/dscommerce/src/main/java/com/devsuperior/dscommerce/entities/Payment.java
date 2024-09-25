@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.Instant;
 
-@Entity(name = "tb-payment")
+@Entity(name = "tb_payment")
 public class Payment {
 
     @Id
