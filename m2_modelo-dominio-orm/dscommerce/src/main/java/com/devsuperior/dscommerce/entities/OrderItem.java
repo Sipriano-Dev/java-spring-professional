@@ -3,6 +3,8 @@ package com.devsuperior.dscommerce.entities;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 
+import java.util.Objects;
+
 @Entity(name = "tb_order_item")
 public class OrderItem {
 
@@ -54,4 +56,16 @@ public class OrderItem {
         id.setProduct(product);
     }
 
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OrderItem orderItem)) return false;
+
+        return Objects.equals(id, orderItem.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

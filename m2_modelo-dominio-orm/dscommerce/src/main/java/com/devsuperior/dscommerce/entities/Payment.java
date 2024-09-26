@@ -50,4 +50,17 @@ public class Payment {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Payment payment)) return false;
+
+        return id == payment.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Long.hashCode(id);
+    }
 }
