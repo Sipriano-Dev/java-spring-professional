@@ -1,13 +1,12 @@
 package com.devsuperior.dscommerce.services;
 
 import com.devsuperior.dscommerce.dto.ProductDTO;
-import com.devsuperior.dscommerce.entities.Product;
 import com.devsuperior.dscommerce.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -17,10 +16,13 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public ProductDTO findById(Long id) {
-        //repository retorna um Product em forma de optional, ultiliza o get() pra
-        //busca o product dentro do Optional, e ai passa o product para o construtor
-        //do ProductDTO que vai busca os dados que quer através do construtor
         return new ProductDTO(repository.findById(id).get());
+    }
+
+    @Transactional(readOnly = true)
+    public List<ProductDTO> findAll() {
+        List<ProductDTO> list = repository.findAll().stream().map(ProductDTO::new).toList();
+        return list;
     }
 
 }
