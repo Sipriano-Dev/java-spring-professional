@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 
 @Service
 public class ProductService {
@@ -28,11 +27,13 @@ public class ProductService {
                 () -> new ResourceNotFoundException("Recurso não encontrado!")));
     }
 
+
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(Pageable pageable) {
-        Page<ProductDTO> list = repository.findAll(pageable).map(ProductDTO::new);
+    public Page<ProductDTO> findAll(String name, Pageable pageable) {
+        Page<ProductDTO> list = repository.searchByName(name, pageable).map(ProductDTO::new);
         return list;
     }
+
 
     @Transactional
     public ProductDTO insert(ProductDTO dto) {
