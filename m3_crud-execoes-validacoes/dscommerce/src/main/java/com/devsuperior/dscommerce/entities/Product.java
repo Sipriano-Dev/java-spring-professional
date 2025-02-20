@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-@Entity(name = "tb_product")
+@Entity
+@Table(name = "tb_product")
 public class Product {
 
     @Id
