@@ -22,7 +22,7 @@ public class User implements UserDetails {
     private LocalDate birthDate;
     private String password;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "user")
     private List<Order> orders = new ArrayList<>();
 
     @ManyToMany

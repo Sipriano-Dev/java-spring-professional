@@ -1,6 +1,5 @@
 package com.devsuperior.dscommerce.dto;
 
-import com.devsuperior.dscommerce.entities.Role;
 import com.devsuperior.dscommerce.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 
